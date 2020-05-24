@@ -1,0 +1,18 @@
+const express = require('express');
+
+//create router for diff routes using expressrouter
+const router = express.Router();
+
+//get the controller file loaded
+const homeController = require('../controllers/home_controller');
+
+//check for loaded or not
+console.log("Router loaded");
+
+//using the controller 
+router.get('/', homeController.home);
+router.get('/contacts', homeController.contacts);
+
+//make it available outside here
+module.exports = router; 
+
