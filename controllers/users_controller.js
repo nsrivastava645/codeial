@@ -1,9 +1,9 @@
 //controller for many users
 
 module.exports.profile = function(req, res){
-    return res.end('<h1>User Profile</h1>');
+    // return res.end('<h1>User Profile</h1>');
+    return res.render('user_profile',{
+        title: "Profile Page"
+    });
 }
 
-module.exports.posts = function(req, res){
-    return res.end('<h1>User Posts</h1>');
-}

@@ -1,14 +1,21 @@
 const express = require('express');
 const app = express();
 const port = 8000;
+const expressLayouts = require('express-ejs-layouts');
+
+//add layout to your index.js
+app.use(expressLayouts);
+
 
 //any app will use the routes index file then index of routes filewill use middleware to route to its neighbours using router.use method
 
+
+//setting up views engine
 //use the express router 
 app.use('/', require('./routes'));//by default fetches routes/index
 
 //setting the view engine
-app.set('view-engine', 'ejs');
+app.set('view engine', 'ejs');
 
 //set views directory
 app.set('views','./views');
