@@ -11,7 +11,11 @@ console.log("Router loaded");
 
 //using the controller 
 router.get('/', homeController.home);
-router.get('/contacts', homeController.contacts);
+//for other routes than home proceed below
+//for a users request or route use the users routing file
+router.use('/users', require('./users'));
+
+// router.use('/posts', require('./posts'));
 
 //make it available outside here
 module.exports = router; 
