@@ -1,3 +1,5 @@
+const User = require('../models/user');
+
 //controller for many users
 
 module.exports.profile = function(req, res){
@@ -25,7 +27,26 @@ module.exports.signIn = function(req,res){
 
 //for creating an account getting the signup data
 module.exports.create = function(req, res){
-    //TODO later
+    //check if password and confirm pwd are same
+    if(req.body.password != req.body.confirm_password){
+        return res.redirect('back');
+    }
+
+    //if same then check the db model for already present userna,e
+    User.findOne({email: req.body.email}, function(err, user){
+        if(err){console.log('error in finding the user in signing up'); return;}
+
+        if(!user){
+            User.create(req.body, function(err, user){
+                if(err){console.log('error in finding the user in signing up'); return;}
+                return res.redirect('/users/sign-in');
+            });
+        }else{
+            return res.redirect('back');
+        }
+
+    });
+
 }
 
 //for logging in and creating a session

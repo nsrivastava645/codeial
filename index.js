@@ -1,4 +1,7 @@
 const express = require('express');
+//for cookies
+const cookieParser = require('cookie-parser');
+//end cookie
 const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
@@ -6,6 +9,12 @@ const db  = require('./config/mongoose');
 
 
 
+
+//use the cookie parser
+app.use(cookieParser());
+
+//reading through post requests
+app.use(express.urlencoded());
 
 //add layout to your index.js
 app.use(expressLayouts);
