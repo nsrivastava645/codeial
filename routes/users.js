@@ -11,6 +11,8 @@ const usersController = require('../controllers/users_controller')
 router.get('/profile', usersController.profile);
 //for posts section
 // router.get('/posts', usersController.posts);
-
+//for signin and signup pages
+router.get('/sign-up', usersController.signUp);
+router.get('/sign-in', usersController.signIn);
 //export this router
 module.exports = router;
