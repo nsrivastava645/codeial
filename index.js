@@ -7,6 +7,13 @@ const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db  = require('./config/mongoose');
 
+//used for session cookie
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+const MongoStore = require('connect-mongo')(session);
+
+
 
 
 
@@ -30,14 +37,47 @@ app.use(express.static('./assets'));
 
 
 //setting up views engine
-//use the express router 
-app.use('/', require('./routes'));//by default fetches routes/index
+
 
 //setting the view engine
 app.set('view engine', 'ejs');
 
 //set views directory
 app.set('views','./views');
+
+
+//using the encryptor for session cookie
+//mongo store forsession cookie storage
+app.use(session({
+    name : 'codeial',
+    //TODO change the secret before deployment on server
+    secret: 'something',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
+    },
+    store: new MongoStore(
+        {
+            mongooseConnection : db,
+            autoRemove: 'disabled'
+        }, 
+        function(err){
+            console.log(err || 'connect=mongodb setup okay');
+        }
+        
+        )
+
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use(passport.setAuthenticatedUser);
+
+//use the express router 
+app.use('/', require('./routes'));//by default fetches routes/index
 
 //add listener on this port 
 app.listen(port,/*callback*/function(err){

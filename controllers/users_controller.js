@@ -3,7 +3,7 @@ const User = require('../models/user');
 //controller for many users
 
 module.exports.profile = function(req, res){
-    // return res.end('<h1>User Profile</h1>');
+
     return res.render('user_profile',{
         title: "Profile Page"
     });
@@ -11,6 +11,12 @@ module.exports.profile = function(req, res){
 
 //renders the sign up or create accounts page
 module.exports.signUp = function(req,res){
+    if(req.isAuthenticated()){
+       return res.redirect('/users/profile');
+    }
+
+
+
     return res.render('user_sign_up', {
         title: "CODEIAL | Sign Up"
     });
@@ -19,6 +25,9 @@ module.exports.signUp = function(req,res){
 
 //renders the login page for existing users
 module.exports.signIn = function(req,res){
+    if(req.isAuthenticated()){
+        return   res.redirect('/users/profile');
+    }
     return res.render('user_sign_in', {
         title: "CODEIAL | Log In"
     });
@@ -28,6 +37,7 @@ module.exports.signIn = function(req,res){
 //for creating an account getting the signup data
 module.exports.create = function(req, res){
     //check if password and confirm pwd are same
+    console.log(res.cookie)
     if(req.body.password != req.body.confirm_password){
         return res.redirect('back');
     }
@@ -51,5 +61,12 @@ module.exports.create = function(req, res){
 
 //for logging in and creating a session
 module.exports.createSession = function(req, res){
-    //TODO later
+    return res.redirect('/');
+}
+
+
+module.exports.destroySession = function(req, res){
+    req.logout();
+
+    return res.redirect('/');
 }
