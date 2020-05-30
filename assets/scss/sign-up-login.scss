@@ -1,0 +1,29 @@
+.login-signup-form{
+    margin: 1.5rem auto;
+}
+
+.login-signup-form input{
+    display: block;
+    height: 2rem;
+    margin: 1rem auto;
+    font-size: larger;
+    padding: 0.2rem 0.5rem;
+}
+.login-signup-btn{
+    height: auto;
+    width: auto;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.8rem;
+    background: #000;
+    outline: none;
+    border: none;
+    color: #5cccd0;
+    cursor: pointer;
+}
+h1{
+    width: 45%;
+    margin: 2rem auto;
+    font-style: oblique;
+    font-family: monospace;
+}
