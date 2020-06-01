@@ -15,7 +15,10 @@ router.get('/', homeController.home);
 //for a users request or route use the users routing file
 router.use('/users', require('./users'));
 
-// router.use('/posts', require('./posts'));
+//route for posts will be handled by this
+router.use('/posts', require('./posts'));
+
+
 
 //make it available outside here
 module.exports = router; 
