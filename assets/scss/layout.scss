@@ -1,4 +1,55 @@
 body{
+    height: 100%;
     margin: 0;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    .page-heading{
+        margin-top: 50px;
+        padding: 1rem;
+        width: 100%;
+    }
+    header{
+        
+        .nav-buttons{
+            li{
+                display: inline-block;
+                
+            }
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 3rem;
+        }
+        font-size: xx-large;
+        padding: 0.25rem 2rem;
+        width: 100%;
+        top: 0;
+        height: 45px;
+        background-color: darkseagreen;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        color: #ffffff;
+
+        
+    }
+    footer{
+        background-color: darkseagreen;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+    }
+    .login-signup-btn{
+        height: auto;
+        width: auto;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border-radius: 0.8rem;
+        background: #000;
+        outline: none;
+        border: none;
+        color: #5cccd0;
+        cursor: pointer;
+}
 }
