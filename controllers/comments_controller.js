@@ -18,9 +18,25 @@ module.exports.create = function(req, res){
                 return res.redirect('/');
             });
         }
-    })
+    });
 
+}
 
+module.exports.destroy = function(req, res){
+    Comment.findById(req.params.id, function(err, comment){
+        console.log(req);
+        if(comment.user == req.user.id || comment.post.id == req.post) {
+            //we delete a comment from comments but also from the posts array so store the comment id and delete it from the posts db
+            let postId = comment.post;
 
+            comment.remove();
+            //find the post having this comment then update it with deleted comment array
+            Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}}, function(err, post){
+                return res.redirect('back');
+            });
 
+        } else{
+            return res.redirect('back');
+        }
+    });
 }
