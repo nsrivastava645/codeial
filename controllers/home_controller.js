@@ -11,7 +11,15 @@ module.exports.home = function(req, res){
     //     });
     // });
 //populate userof each post
-    Post.find({}).populate('user').exec(function(err, posts){
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate: {
+            path: 'user'
+        }
+    })
+    .exec(function(err, posts){
         return res.render('home', /*contents  called context you want to send from here*/{
         
             title: "CODEIAL | Home",

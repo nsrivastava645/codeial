@@ -42,3 +42,5 @@ body {
     border: none;
     color: #5cccd0;
     cursor: pointer; }
+  body #feed-posts {
+    margin: 5rem auto; }

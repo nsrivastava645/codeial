@@ -16,6 +16,7 @@ router.get('/profile', passport.checkAuthentication , usersController.profile);
 //for signin and signup pages
 router.get('/sign-up', usersController.signUp);
 router.get('/sign-in', usersController.signIn);
+
 //for creating account for posting the info to server
 router.post('/create', usersController.create);
 

@@ -18,6 +18,9 @@ router.use('/users', require('./users'));
 //route for posts will be handled by this
 router.use('/posts', require('./posts'));
 
+//router for comments
+router.use('/comments', require('./comments'));
+
 
 
 //make it available outside here
