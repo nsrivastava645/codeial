@@ -3,10 +3,24 @@ const User = require('../models/user');
 //controller for many users
 
 module.exports.profile = function(req, res){
-
-    return res.render('user_profile',{
-        title: "Profile Page"
+    User.findById(req.params.id, function(err, user){
+        return res.render('user_profile', {
+            title: "User Profile",
+            profile_user: user
+        });
     });
+}
+
+//update the profile
+module.exports.update = function(req, res){
+    //check current user is the user whose profileis being changed
+    if(req.user.id ==  req.params.id){
+        User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
+            return res.redirect('back');
+        });
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
 }
 
 //renders the sign up or create accounts page
@@ -61,12 +75,13 @@ module.exports.create = function(req, res){
 
 //for logging in and creating a session
 module.exports.createSession = function(req, res){
+    req.flash('success', 'Logged in Successfully');
     return res.redirect('/');
 }
 
 
 module.exports.destroySession = function(req, res){
     req.logout();
-
+    req.flash('success', 'Logged out of the session');
     return res.redirect('/');
 }

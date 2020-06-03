@@ -10,7 +10,8 @@ const usersController = require('../controllers/users_controller')
 
 
 //route the router to get the function or action from controller filr
-router.get('/profile', passport.checkAuthentication , usersController.profile);
+router.get('/profile/:id', passport.checkAuthentication , usersController.profile);
+router.post('/update/:id', passport.checkAuthentication, usersController.update);
 //for posts section
 // router.get('/posts', usersController.posts);
 //for signin and signup pages

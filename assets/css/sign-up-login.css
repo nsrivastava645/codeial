@@ -1,12 +1,16 @@
 .login-signup-form {
   margin: 1.5rem auto; }
-
-.login-signup-form input {
-  display: block;
-  height: 2rem;
-  margin: 1rem auto;
-  font-size: larger;
-  padding: 0.2rem 0.5rem; }
+  .login-signup-form input {
+    display: block;
+    height: 2rem;
+    margin: 1rem auto;
+    font-size: larger;
+    padding: 0.2rem 0.5rem;
+    outline: none;
+    border-radius: 0.3rem; }
+  .login-signup-form ::placeholder {
+    color: black;
+    font-size: small; }
 
 .login-signup-btn {
   height: auto;
@@ -21,6 +25,7 @@
   cursor: pointer; }
 
 h1 {
+  color: azure;
   width: 45%;
   margin: 2rem auto;
   font-style: oblique;

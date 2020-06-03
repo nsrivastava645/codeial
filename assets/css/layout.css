@@ -1,30 +1,17 @@
 body {
-  height: 100%;
+  background-color: #4a4a4a;
   margin: 0;
   text-align: center;
   font-family: 'Roboto', sans-serif; }
+  body ::placeholder {
+    opacity: 1;
+    color: azure; }
+  body #layout-main {
+    margin-top: 50px; }
   body .page-heading {
     margin-top: 50px;
     padding: 1rem;
     width: 100%; }
-  body header {
-    font-size: xx-large;
-    padding: 0.25rem 2rem;
-    width: 100%;
-    top: 0;
-    height: 45px;
-    background-color: darkseagreen;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    color: #ffffff; }
-    body header .nav-buttons {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      margin-right: 3rem; }
-      body header .nav-buttons li {
-        display: inline-block; }
   body footer {
     background-color: darkseagreen;
     position: fixed;
@@ -35,12 +22,9 @@ body {
     height: auto;
     width: auto;
     padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 0.8rem;
-    background: #000;
+    border-radius: 0.3rem;
+    background: #fff;
     outline: none;
     border: none;
-    color: #5cccd0;
+    color: #000;
     cursor: pointer; }
-  body #feed-posts {
-    margin: 5rem auto; }
