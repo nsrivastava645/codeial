@@ -2,7 +2,7 @@
 
     <p>
         <% if (locals.user && (locals.user.id == comment.user.id || post.user.id == locals.user.id)){ %>
-        <small>
+        <small class="delete">
              <a href="/comments/destroy/<%= comment.id %>">Delete Comment</a>
         </small>
         <% } %>

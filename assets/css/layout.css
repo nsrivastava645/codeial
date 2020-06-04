@@ -28,3 +28,6 @@ body {
     border: none;
     color: #000;
     cursor: pointer; }
+  body .delete a {
+    color: azure;
+    text-decoration: none; }
