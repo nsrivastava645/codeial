@@ -1,7 +1,6 @@
 body {
   background-color: #4a4a4a;
   margin: 0;
-  text-align: center;
   font-family: 'Roboto', sans-serif; }
   body ::placeholder {
     opacity: 1;
