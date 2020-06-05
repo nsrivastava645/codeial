@@ -18,7 +18,8 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 //our middleware handling coonnect and logout request and responses
 const customMware = require('./config/middleware');
-
+//code to sahi h pura exact copy kara hai maine lol i did the same chill;)okay fir theek hai..;Pkya karu then>
+////google krna padega thora or case handle krna padega achaa thik hai.
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
@@ -43,6 +44,9 @@ app.set('layout extractScripts', true);
 
 //adding static files
 app.use(express.static('./assets'));
+
+//for avatar images acessible from th euploads folder
+app.use('/uploads', express.static(__dirname+'/uploads'));
 //any app will use the routes index file then index of routes filewill use middleware to route to its neighbours using router.use method
 
 

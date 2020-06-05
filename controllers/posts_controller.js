@@ -50,7 +50,7 @@ module.exports.destroy = async function(req, res){
             });
         }
         
-        req.flash('success', `Post Deleted with all comments by: ${p_user.name}`);//ye shi to h but ye dekho
+        req.flash('delete', `Post Deleted with all comments by: ${p_user.name}`);//ye shi to h but ye dekho
 
         return res.redirect('back');
     } else{

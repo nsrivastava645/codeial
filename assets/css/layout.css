@@ -1,8 +1,9 @@
 body {
   background-color: #4a4a4a;
+  color: azure;
   margin: 0;
   text-align: center;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans; }
   body ::placeholder {
     opacity: 1;
     color: azure; }
@@ -12,21 +13,16 @@ body {
     margin-top: 50px;
     padding: 1rem;
     width: 100%; }
-  body footer {
-    background-color: darkseagreen;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px; }
   body .login-signup-btn {
     height: auto;
+    font-size: medium;
     width: auto;
     padding: 0.5rem;
     border-radius: 0.3rem;
-    background: #fff;
+    background: #4a4a4a;
     outline: none;
     border: none;
-    color: #000;
+    color: azure;
     cursor: pointer; }
   body .delete a {
     color: azure;

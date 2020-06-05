@@ -8,6 +8,9 @@ header {
   display: flex;
   justify-content: space-between;
   color: #ffffff; }
+  header #home-link {
+    color: azure;
+    text-decoration: none; }
   header .nav-buttons {
     font-size: 15px;
     list-style: none;
